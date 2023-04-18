@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+<title>Edit Post -Blog</title>
+
+{% block main-area %}
+  <h1>Edit Post</h1>
+  <hr/>
+  <form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form | crispy }}
+    <!-- 사용자가 태그하는 input 박스 만들기 -->
+    <div id="div_id_tags_str">
+        <label for="id_tags_str">Tags:</label>
+        <input type="text" name="tags_str" id="id_tags_str" class="textinput textInput form-control">
+    </div>
+</table>
+<button type="submit" class="btn btn-primary float-right">Submit</button>
+</form>
+{% endblock %}

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,18 @@ INSTALLED_APPS = [
     'blog',
     'single_pages',
     'dashboard_drug',
+    'django_summernote',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # google email
+    'allauth.socialaccount.providers.google',  
+    # kakao id
+    # 'allauth.socialaccount.providers.kakao',
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +70,7 @@ ROOT_URLCONF = 'drug_pjt.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,9 +133,51 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-
+STATIC_URL = 'static/'
+STATICFILES_DIRS =(BASE_DIR, '', 'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
+
+# all-auth 설정
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+
+ACCONUT_EMAIL_REQUIRED = True
+ACCONUT_EMAIL_VERIFICATION = 'none'
+LOGIN_REDIRECT_URL = '/blog/'
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+# # Provider specific settings
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         # For each OAuth based provider, either add a ``SocialApp``
+#         # (``socialaccount`` app) containing the required client
+#         # credentials, or list them here:
+#         'APP': {
+#             'client_id': '123',
+#             'secret': '456',
+#             'key': ''
+#         }
+#     }
+# }
+
+
+
+
+

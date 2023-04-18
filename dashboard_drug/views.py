@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from.models import ForeignDrugUser,ForeignDrugUserNation
+# from django.shortcuts import render
+# from.models import ForeignDrugUser,ForeignDrugUserNation
 
 
-# Create your views here.
+# # Create your views here.
