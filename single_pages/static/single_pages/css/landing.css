@@ -1,0 +1,12 @@
+body{
+  background: url('/static/single_pages/images/sunset-g61cba7e69_1920.jpg') no-repeat
+  center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -moz-background-size: cover;
+}
+
+section{
+  margin-bottom: 150px;
+}

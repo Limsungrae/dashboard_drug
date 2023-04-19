@@ -1,10 +1,7 @@
-# from django.urls import path
-# # from community.views import write
-# from dashboard_drug import views
+# 23.04.17 추가
+from django.urls import path
+from . import views
 
-# urlpatterns = [
-#     # dashboard_drug/
-#     path('', views.dashboard_drug, name="dashboard_drug")
-
-    
-# ]
+urlpatterns = [
+    path('', views.Dashboard.as_view(), name="dashboard"),
+]
