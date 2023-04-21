@@ -1,0 +1,54 @@
+{# 최근 5년간 마약류 사범 수 #}
+<!-- title -->
+
+<section>
+  <canvas id="num_drug_users_chart" height="400"></canvas>
+</section>
+
+<script>
+  const num_drug_users_ctx = document.querySelector('#num_drug_users_chart')
+
+  const num_drug_users_labels = [{% for ndu in num_drug_users %} '{{ndu.years_drug_user}}년 / {{ndu.num_drug_user}}명',  {% endfor %}];
+
+  const num_drug_users_data = [{% for ndu in num_drug_users %} {{ ndu.num_drug_user }}, {% endfor %}];
+
+  const ndu_data = {
+      labels: num_drug_users_labels,
+      datasets: [
+          {
+              data: num_drug_users_data,
+              label: "최근 5년간 마약류 사범 수",
+              backgroundColor: [
+                  "rgba(255, 99, 132, 0.5)",
+                  "rgba(255, 159, 64, 0.5)",
+                  "rgba(255, 205, 86, 0.5)",
+                  "rgba(75, 192, 192, 0.5)",
+                  "rgba(54, 162, 235, 0.5)",
+              ],
+              borderColor: ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)"],
+              borderWidth: 2,
+          },
+      ],
+  };
+
+    const num_drug_users_config = {
+        type: "bar",
+        data: ndu_data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            beginAtZero: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  min: 0,
+                  max: 100000000,
+                  beginAtZero: true,
+                }
+              }]
+            }
+        },
+    };
+
+  new Chart(num_drug_users_ctx, num_drug_users_config);
+</script>

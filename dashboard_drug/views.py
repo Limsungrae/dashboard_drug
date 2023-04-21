@@ -31,4 +31,4 @@ class Dashboard(View):
             'rehab_data': rehab_data,
         }
         
-        return render(request, 'dashboard.html', context)
+        return render(request, 'dashboard_drug/dashboard.html', context)
