@@ -8,7 +8,7 @@
 <script>
   const num_drug_users_ctx = document.querySelector('#num_drug_users_chart')
 
-  const num_drug_users_labels = [{% for ndu in num_drug_users %} '{{ndu.years_drug_user}}년 / {{ndu.num_drug_user}}명',  {% endfor %}];
+  const num_drug_users_labels = [{% for ndu in num_drug_users %} '{{ndu.years_drug_user}}년',  {% endfor %}];
 
   const num_drug_users_data = [{% for ndu in num_drug_users %} {{ ndu.num_drug_user }}, {% endfor %}];
 
@@ -19,13 +19,20 @@
               data: num_drug_users_data,
               label: "최근 5년간 마약류 사범 수",
               backgroundColor: [
-                  "rgba(255, 99, 132, 0.5)",
-                  "rgba(255, 159, 64, 0.5)",
-                  "rgba(255, 205, 86, 0.5)",
-                  "rgba(75, 192, 192, 0.5)",
-                  "rgba(54, 162, 235, 0.5)",
-              ],
-              borderColor: ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)"],
+                     
+                    "#3E68B6a3", 
+                    "#007CC4a3", 
+                    "#008DC1a3", 
+                    "#009BADa3",
+                    "#00A68Ca3"
+                  ],
+              
+              borderColor: [
+                    "#3E68B6", 
+                    "#007CC4", 
+                    "#008DC1", 
+                    "#009BAD",
+                    "#00A68C"],
               borderWidth: 2,
           },
       ],

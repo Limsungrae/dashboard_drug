@@ -2,27 +2,23 @@
 <!-- title -->
 
 <!-- css_area -->
-{% block style %}
-<style>
-  .canvas_h {
-    overflow-y: auto;
-  }
-</style>
-{% endblock style %}
 
 <section>
-  <div class="canvas_h">
+  <div class="canvas_h repeat_c">
     <canvas id="repeat_crime_chart" height="400"></canvas>
   </div>
-  <div>
-    <p><span>※</span> 재범인원: 마약류 사범으로 입건된 전과가 1회 이상 있는 인원</p>
+  <div class="rc_word_bg drug_text">
+    <p class="rc_word">
+      <span>※재범인원</span> 
+       마약류 사범으로 입건된 전과가 1회 이상 있는 인원
+    </p>
   </div>
 </section>
 
 <script>
   const repeat_crime_ctx = document.querySelector('#repeat_crime_chart');
 
-  const repeat_crime_labels = [{% for rc in repeat_crime %} '{{rc.years_repeat_crime}}년 / 재범 수 : {{rc.rp_drug_user}}명', {% endfor %}];
+  const repeat_crime_labels = [{% for rc in repeat_crime %} '{{rc.years_repeat_crime}}년 ', {% endfor %}];
 
   const repeat_crime_labels_total = [{% for rc in repeat_crime %} '{{rc.all_drug_user}}명', {% endfor %}];
 
@@ -42,22 +38,18 @@
             borderColor: [
                   "rgb(0,0,0)",
               ],
-            borderWidth: 1,
+            borderWidth: 3,
             type: 'line',
           },
           {
               data: repeat_crime_data,
               label: "2021년 까지 연도별 재범인원 수",
               backgroundColor: [
-                  "rgba(255, 99, 132, 0.5)",
-                  "rgba(255, 159, 64, 0.5)",
-                  "rgba(255, 205, 86, 0.5)",
-                  "rgba(75, 192, 192, 0.5)",
-                  "rgba(54, 162, 235, 0.5)",
+                  "#639D9C",
               ],
-              borderColor: ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)"],
-              borderWidth: 2,
-              type: 'bar',
+              borderColor: ["#639D9C"],
+              borderWidth: 3,
+              type: 'line',
           },
       ],
   };
@@ -74,7 +66,7 @@
                     beginAtZero: true,
                 }
             }]
-        },
+        }
       },
   };
 

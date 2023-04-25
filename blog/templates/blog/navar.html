@@ -14,16 +14,16 @@
           </a>
         </li>
         <li class="nav-item active"><a class="nav-link" href="/about_me/">
-          포트폴리오
+          About_me
           <span class="sr-only">(current)</span>
         </a>
       </li>
       <li class="nav-item active"><a class="nav-link" href="/dashboard_drug/">
-        대쉬보드
+        Dashboard
         <span class="sr-only">(current)</span>
       </a>
     </li>
-        <li class="nav-item"><a class="nav-link" href="#!">Skill</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="#!">Skill</a></li> -->
       </ul>
       <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
@@ -63,13 +63,13 @@
       <a role="button" class="btn btn-outline-secondary col-12 " href="{% provider_login_url 'google' %}" ><i class="bi bi-google"></i> &nbsp; &nbsp; 구글 로그인</a>
     </div>
     <div class="col-md-6">
-    <button type="button" onclick="location.href = '{% provider_login_url 'kakao' %}'"><img class = "kakao" src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" alt="" ></button>
+    <button style="border: none;"  type="button" onclick="location.href = '{% provider_login_url 'kakao' %}'"><img class = "kakao" src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" alt="" ></button>
     </div>
     <div class="col-md-6">
-      <a href="/accounts/login/" class="btn btn-outline-secondary col-12" role="button"><i class="bi bi-envelope"></i>Login with E-mail</a>
+      <a href="/accounts/login/" class="btn btn-outline-secondary col-12" role="button"><i class="bi bi-envelope"></i>E-mail로 로그인</a>
     </div>
     <div class="col-md-6">
-    <a role="button" class="btn btn-outline-secondary col-12 " href="/accounts/signup/"><i class="bi bi-envelope"></i>Sign Up with E-mail</a>
+    <a role="button" class="btn btn-outline-secondary col-12 " href="/accounts/signup/"><i class="bi bi-envelope"></i>회원가입</a>
   </div>
       </div>
     </div>
